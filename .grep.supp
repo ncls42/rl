@@ -1,0 +1,33 @@
+{
+	<grep>
+	Memcheck:Leak
+	match-leak-kinds: reachable
+	...
+	obj:/usr/bin/grep
+}
+
+{
+   ignore_grep_regex_general
+   Memcheck:Leak
+   match-leak-kinds: indirect
+   ...
+   obj:/usr/bin/grep
+}
+
+{
+   suppress_grep_realloc_possible_loss
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:realloc
+   obj:/usr/bin/grep
+}
+
+{
+   suppress_grep_regex_definitely_lost
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc
+   fun:re_compile_internal
+   fun:re_compile_pattern
+   obj:/usr/bin/grep
+}

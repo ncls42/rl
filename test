@@ -1,0 +1,24 @@
+#!/bin/bash
+
+# Compiler ton programme
+make
+
+# Vérifier si la compilation a réussi
+if [ $? -eq 0 ]; then
+    echo "Compilation réussie. Lancement de Minishell..."
+
+    # Tester les commandes fixes
+    echo "Test: ls"
+    echo "ls" | ./minishell
+
+    echo -e "\nTest: echo o | echo p"
+    echo "echo o | echo p" | ./minishell
+
+    # Si un argument est donné, l'utiliser comme commande à tester
+    if [ $# -ge 1 ]; then
+        echo -e "\nTest avec argument: $*"
+        echo "$*" | ./minishell
+    fi
+else
+    echo "Erreur de compilation."
+fi
