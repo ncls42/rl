@@ -1,0 +1,16 @@
+Ex. simple de devcontainer.json :
+{
+  "name": "Linux-School-Env",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "settings": {
+    "terminal.integrated.shell.linux": "/bin/bash"
+  },
+  "extensions": [
+    "ms-vscode.cpptools",
+    "ms-python.python"
+  ],
+  "forwardPorts": [],
+  "postCreateCommand": "apt update && apt install -y build-essential git"
+}
